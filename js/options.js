@@ -15,9 +15,16 @@ $(() => {
   $("#resetExpense").click(() => {
     var userAction = confirm("Reset?");
     if (userAction == true) {
-      chrome.storage.sync.set({ spending: 0 });
+      chrome.storage.sync.set({ spending: 0 }, () => {
+        chrome.notifications.create("spendingReset", {
+          type: "basic",
+          iconUrl: "icon.png",
+          title: "Spending reset",
+          message: "Spending reset successfully",
+        });
+      });
       $("#spending").text(0);
-      close();
+      // close();
     }
   });
 });

@@ -2,7 +2,7 @@ $(() => {
   // add spending
   $("#updateSpending").click(() => {
     const userInput = $("#spendingAmount").val();
-    chrome.storage.sync.get("spending", (budget) => {
+    chrome.storage.sync.get(["spending", "limit"], (budget) => {
       let newExpense = 0;
 
       // get prev spending
@@ -19,6 +19,14 @@ $(() => {
       // update spending
       $("#spending").text(newExpense);
 
+      if (parseInt(newExpense) > parseInt(budget.limit)) {
+        chrome.notifications.create("limitExceeded", {
+          type: "basic",
+          iconUrl: "alert.png",
+          title: "Budget Manager",
+          message: "you have exceeded your limit",
+        });
+      }
       // empty user input
       $("#limit").val("");
     });

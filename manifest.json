@@ -3,10 +3,15 @@
   "version": "1.0",
   "description": "Build an Extension!",
   "manifest_version": 2,
+  "icons": {
+    "128": "icon.png",
+    "48": "icon.png",
+    "16": "icon.png"
+  },
   "browser_action": {
-    "default_icon": "/img/icon.png",
+    "default_icon": "icon.png",
     "default_popup": "popup.html"
   },
   "options_page": "options.html",
-  "permissions": ["storage"]
+  "permissions": ["storage", "notifications"]
 }
