@@ -5,23 +5,12 @@ $(() => {
     chrome.storage.sync.set({ limit: userInput });
   });
 
-  function syncAmount() {
-    //todo add to extnsion icon (like notification)
-    chrome.storage.sync.get(["spending", "limit"], (budget) => {
-      console.log(budget);
-
-      if (budget.spending) {
-        $("#spending").text(budget.spending);
-      }
-      if (budget.limit) {
-        $("#limit").text(budget.limit);
-      }
-    });
-  }
-  // sync spending amount every x amount
-  setInterval(() => {
-    syncAmount();
-  }, 1000);
+  // fill form with prev data
+  chrome.storage.sync.get("limit", (budget) => {
+    if (budget.limit) {
+      $("#limitValue").val(budget.limit);
+    }
+  });
 
   $("#resetExpense").click(() => {
     var userAction = confirm("Reset?");

@@ -1,14 +1,5 @@
 $(() => {
   // add spending
-
-  chrome.storage.sync.get("spending", (budget) => {
-    if (budget.spending) {
-      $("#spending").text(budget.spending);
-      //todo add to extnsion icon (like notification)
-    }
-  });
-
-  // add spending
   $("#updateSpending").click(() => {
     const userInput = $("#spendingAmount").val();
     chrome.storage.sync.get("spending", (budget) => {
