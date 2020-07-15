@@ -12,8 +12,20 @@
   <body>
     <div class="container">
       <h2>Budget Manager Options</h2>
-      <p>Total <span id="total" class="badge badge-info"></span></p>
-      <button class="btn btn-danger" id="resetTotal">Reset Total</button>
+      <p>Spending <span id="spending" class="badge badge-info"></span></p>
+      <p>Limit <span id="limit" class="badge badge-info"></span></p>
+
+      <form>
+        <div class="form-group">
+          <label for="limit">Update Limit</label>
+          <input type="text" class="form-control" id="limitValue" />
+        </div>
+        <button type="submit" class="btn btn-primary" id="saveLimit">
+          Submit
+        </button>
+        <button class="btn btn-danger" id="resetExpense">Reset xpense</button>
+      </form>
+
       <script src="js/jquery.min.js"></script>
       <script src="js/options.js"></script>
     </div>

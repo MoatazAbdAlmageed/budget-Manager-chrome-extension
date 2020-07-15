@@ -12,12 +12,20 @@
     <div class="container">
       <img class="icon" src="img/icon.png" alt="icon" />
       <h4>Budget Manager</h4>
-      <p>Total <span id="total" class="badge badge-info"></span></p>
-      <label>Limit</label>
-      <input type="text" id="amount" />
-      <button class="btn btn-primary" id="addExpense">Add</button>
+      <p>Spending <span id="spending" class="badge badge-info"></span></p>
+
+      <form>
+        <div class="form-group">
+          <label for="spendingAmount">Add Spending</label>
+          <input type="text" class="form-control" id="spendingAmount" />
+        </div>
+        <button type="submit" class="btn btn-primary" id="updateSpending">
+          Submit
+        </button>
+      </form>
+      <hr />
       <script src="js/jquery.min.js"></script>
-      <script src="js/main.js"></script>
+      <script src="js/popup.js"></script>
     </div>
   </body>
 </html>

@@ -1,22 +1,34 @@
 $(() => {
+  // add spending
+  $("#saveLimit").click(() => {
+    const userInput = $("#limitValue").val();
+    chrome.storage.sync.set({ limit: userInput });
+  });
+
   function syncAmount() {
-    chrome.storage.sync.get("total", (budget) => {
-      if (budget.total) {
-        $("#total").text(budget.total);
-        //todo add to extnsion icon (like notification)
+    //todo add to extnsion icon (like notification)
+    chrome.storage.sync.get(["spending", "limit"], (budget) => {
+      console.log(budget);
+
+      if (budget.spending) {
+        $("#spending").text(budget.spending);
+      }
+      if (budget.limit) {
+        $("#limit").text(budget.limit);
       }
     });
   }
-  // sync total amount every x amount
+  // sync spending amount every x amount
   setInterval(() => {
     syncAmount();
-  }, 500);
+  }, 1000);
 
-  $("#resetTotal").click(() => {
+  $("#resetExpense").click(() => {
     var userAction = confirm("Reset?");
     if (userAction == true) {
-      chrome.storage.sync.set({ total: 0 });
-      $("#total").text(0);
+      chrome.storage.sync.set({ spending: 0 });
+      $("#spending").text(0);
+      close();
     }
   });
 });
