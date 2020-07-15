@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles/main.css.css" />
     <link rel="stylesheet" href="styles/options.css" />
     <title>Moataz Extention</title>
   </head>
   <body>
-    <h2>Budget Manager</h2>
-
-    <h3>Total <span id="total"></span></h3>
-    <h3>Limit <span id="limit"></span></h3>
-
-    <h3>Add Amount</h3>
-    <input type="text" id="amount" />
-    <button id="changeColor">Click me</button>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/options.js"></script>
+    <div class="container">
+      <h2>Budget Manager Options</h2>
+      <p>Total <span id="total" class="badge badge-info"></span></p>
+      <button class="btn btn-danger" id="resetTotal">Reset Total</button>
+      <script src="js/jquery.min.js"></script>
+      <script src="js/options.js"></script>
+    </div>
   </body>
 </html>
